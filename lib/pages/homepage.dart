@@ -1,5 +1,6 @@
 import 'package:feedu/models/popularfoodmodel.dart';
 import 'package:feedu/shared/theme.dart';
+import 'package:feedu/widgets/bottom_navbar_item.dart';
 import 'package:feedu/widgets/popularfood.dart';
 import 'package:flutter/material.dart';
 
@@ -10,28 +11,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: fWhiteColor,
-      bottomNavigationBar: Container(
-        color: Colors.transparent,
-        child: Theme(
-          data: ThemeData(backgroundColor: Colors.green),
-          child: Container(
-            margin: EdgeInsets.fromLTRB(30, 0, 30, 30),
-            height: 70,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: BottomNavigationBar(
-                elevation: 0,
-                // backgroundColor: fGreyBackgroundColor,
-                backgroundColor: Colors.red,
-                items: [
-                  BottomNavigationBarItem(icon: Icon(Icons.abc), label: ''),
-                  BottomNavigationBarItem(icon: Icon(Icons.abc), label: ''),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.only(
@@ -197,8 +176,76 @@ class HomePage extends StatelessWidget {
                   price: 34.999,
                 ),
               ),
+              const SizedBox(
+                height: 40,
+              ),
             ],
           ),
+        ),
+      ),
+      floatingActionButton: Container(
+        width: MediaQuery.of(context).size.width - (2 * defaultMargin),
+        height: 70,
+        margin: const EdgeInsets.only(right: 15),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 15,
+        ),
+        decoration: BoxDecoration(
+          color: fGreyBackgroundColor,
+          borderRadius: BorderRadius.circular(
+            28,
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: 99,
+              height: 40,
+              margin: const EdgeInsets.only(
+                right: 34,
+              ),
+              decoration: BoxDecoration(
+                color: fPrimaryColor,
+                borderRadius: BorderRadius.circular(
+                  20,
+                ),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(
+                      left: 14,
+                      top: 10,
+                      bottom: 11,
+                      right: 8,
+                    ),
+                    width: 20,
+                    height: 19,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/home.png',
+                        ),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    'Home',
+                    style: whiteTextStyle.copyWith(
+                      fontSize: 14,
+                      fontWeight: bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const BottomNavbarItem(
+                'assets/icon_notification.png', '/notification'),
+            const BottomNavbarItem('assets/icon_favorite.png', '/favorite'),
+            const BottomNavbarItem('assets/icon_user.png', '/profile'),
+          ],
         ),
       ),
     );

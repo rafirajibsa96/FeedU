@@ -1,5 +1,6 @@
 import 'package:feedu/pages/detailpage.dart';
 import 'package:feedu/pages/homepage.dart';
+import 'package:feedu/pages/profilepage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/details': (context) => const DetailPage(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }
